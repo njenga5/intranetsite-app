@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/back"
+    android:id="@+id/RelParent">
+
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="370dp"
+    android:layout_height="420dp"
+    android:layout_centerInParent="true"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="7dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:textStyle="bold"
+            android:textSize="50sp"
+            android:id="@+id/txtLogin"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="serif-monospace"
+            android:textColor="@color/cardBack"/>
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtLogin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:hint="Email Address"
+            android:textAlignment="center"
+            android:id="@+id/edtEmail"
+            android:inputType="textEmailAddress"
+            android:autofillHints="emailAddress"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invalid email"
+            android:id="@+id/txtInvalidEmail"
+            android:layout_below="@id/edtEmail"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:textColor="@color/error"/>
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edtEmail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:hint="Password"
+            android:textAlignment="center"
+            android:id="@+id/edtPass"
+            android:inputType="textPassword"
+            android:autofillHints="password"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invalid password"
+            android:id="@+id/txtInvalidPassword"
+            android:layout_below="@id/edtPass"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:textColor="@color/error"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edtPass"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Log In"
+            android:id="@+id/btnLogin"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:layout_below="@id/btnLogin"
+            android:id="@+id/btnSignUp"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
