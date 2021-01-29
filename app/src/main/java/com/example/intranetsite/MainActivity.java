@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void makeServiceCall(){
-        new ApiRequestsHandler(MainActivity.this).makeJsonObjectGetRequest(params, new VolleyResponseListener() {
+        new ApiRequestsHandler(MainActivity.this).makeJsonObjectGetRequest(params, "users", new VolleyResponseListener() {
             @Override
             public void onResponse(Object response) {
                 JSONObject data = (JSONObject) response;

@@ -80,7 +80,7 @@ public class ProfileActivity extends AppCompatActivity {
                 updateParams.put("phone_number", edtEditPhone.getText().toString().trim());
                 updateParams.put("password", edtEditPassword.getText().toString().trim());
                 updateParams.put("email", txtEditEmail.getText().toString().split(":")[1].trim());
-                new ApiRequestsHandler(this).updateUserDetailsRequest(updateParams, new VolleyResponseListener() {
+                new ApiRequestsHandler(this).updateDetailsRequest(updateParams, "users", new VolleyResponseListener() {
                     @Override
                     public void onResponse(Object response) {
                         JSONObject data = (JSONObject) response;

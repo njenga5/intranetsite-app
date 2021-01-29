@@ -1,22 +1,21 @@
 package com.example.intranetsite;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.VolleyError;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.switchmaterial.SwitchMaterial;
 
-import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,12 +49,18 @@ public class SignUpActivity extends AppCompatActivity {
                     postData.put("phone_number", phoneNumber.getText().toString());
                     postData.put("password", password.getText().toString());
 
-                    new ApiRequestsHandler(this).makeJsonObjectPostRequest(postData, new VolleyResponseListener() {
+                    new ApiRequestsHandler(this).makeJsonObjectPostRequest(postData, "users", new VolleyResponseListener() {
                         @Override
                         public void onResponse(Object response) {
+                            JSONObject data = (JSONObject) response;
+                            try {
+                                Toast.makeText(SignUpActivity.this, data.get("success").toString(), Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                Log.e(TAG, "onResponse: JsonException");
+                                e.printStackTrace();
+                            }
                             Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                             startActivity(intent);
-
                         }
 
                         @Override

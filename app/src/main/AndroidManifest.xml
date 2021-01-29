@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Intranetsite">
-        <activity android:name=".GalleryActivity"></activity>
+        <activity
+            android:name=".GalleryActivity"
+            android:label="Gallery" />
         <activity
             android:name=".SignUpActivity"
             android:label="Sign Up" />

@@ -9,5 +9,7 @@
     <string name="logout">Logout</string>
     <string name="save">Save</string>
     <string name="password">Password</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel">Cancel</string>
+    <string name="profile">Profile</string>
+    <string name="gal_picture">picture</string>
 </resources>
