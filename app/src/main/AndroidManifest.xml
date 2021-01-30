@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Intranetsite">
         <activity
+            android:name=".VideoPlayerActivity"
+            android:label="Video Player"/>
+        <activity
             android:name=".GalleryActivity"
             android:label="Gallery" />
         <activity

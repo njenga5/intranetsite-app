@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/toPlayVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="30dp"
+        android:src="@drawable/ic_action_video"
+        android:backgroundTint="@color/teal_700"
+        app:fabSize="mini"
+        android:visibility="invisible"
+        android:contentDescription="fabToVideo" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/toPlayAudio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="30dp"
+        android:src="@drawable/ic_action_audio"
+        android:backgroundTint="@color/teal_700"
+        app:fabSize="mini"
+        android:visibility="invisible"
+        android:contentDescription="fabToAudio" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/uploadPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="30dp"
+        android:src="@drawable/ic_action_addphoto"
+        android:backgroundTint="@color/teal_700"
+        app:fabSize="mini"
+        android:visibility="invisible"
+        android:contentDescription="fabUploadPhoto" />
+</FrameLayout>

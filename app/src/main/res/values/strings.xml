@@ -12,4 +12,6 @@
     <string name="cancel">Cancel</string>
     <string name="profile">Profile</string>
     <string name="gal_picture">picture</string>
+    <string name="upload_video">Upload Video</string>
+    <string name="upload_audio">Upload Audio</string>
 </resources>
