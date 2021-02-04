@@ -15,6 +15,9 @@
             android:name=".VideoPlayerActivity"
             android:label="Video Player"/>
         <activity
+            android:name=".VideoGalleryActivity"
+            android:label="Video Gallery" />
+        <activity
             android:name=".GalleryActivity"
             android:label="Gallery" />
         <activity

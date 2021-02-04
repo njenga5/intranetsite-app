@@ -35,10 +35,10 @@ public class ApiRequestsHandler {
         String queryString;
         Request<?> request;
         if (endPoint.equals("users")){
-            queryString = "users/?email=" + email + "&password=" + password;
+            queryString = "users?email=" + email + "&password=" + password;
             request = new JsonObjectRequest(BASE_URL + queryString, null, volleyResponseListener::onResponse, volleyResponseListener::onError);
         }else {
-            queryString = String.format("%s/%s/", endPoint, email);
+            queryString = String.format("%s/%s", endPoint, email);
             request = new JsonArrayRequest(BASE_URL + queryString, volleyResponseListener::onResponse, volleyResponseListener::onError);
         }
         RequestQueueSingleton.getInstance(context).addToRequestQueue(request);
@@ -71,9 +71,9 @@ public class ApiRequestsHandler {
         JSONObject jsonRequest = new JSONObject(postParams);
         String queryString;
         if (endPoint.equals("users")){
-            queryString = "users/?token=" + token;
+            queryString = "users?token=" + token;
         }else {
-            queryString = String.format("%s/%s/", endPoint, postParams.get("email"));
+            queryString = String.format("%s/%s", endPoint, postParams.get("email"));
         }
         JsonObjectRequest request = new JsonObjectRequest(BASE_URL + queryString, jsonRequest, volleyResponseListener::onResponse, volleyResponseListener::onError);
         RequestQueueSingleton.getInstance(context).addToRequestQueue(request);
@@ -91,9 +91,9 @@ public class ApiRequestsHandler {
         JSONObject jsonRequest = new JSONObject(updateParams);
         String queryString;
         if (endpoint.equals("users")){
-            queryString = "users/?email=" + email + "&password=" + password;
+            queryString = "users?email=" + email + "&password=" + password;
         }else{
-            queryString = String.format("%s/%s/", endpoint, email);
+            queryString = String.format("%s/%s", endpoint, email);
         }
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.PUT, BASE_URL + queryString, jsonRequest, volleyResponseListener::onResponse, volleyResponseListener::onError);
         RequestQueueSingleton.getInstance(context).addToRequestQueue(request);

@@ -45,7 +45,7 @@ public class GalleryActivity extends AppCompatActivity {
         intent = getIntent();
 
         if (intent != null){
-        params = new HashMap<>();
+            params = new HashMap<>();
             params.put("email", intent.getStringExtra("email"));
         }
 
@@ -76,7 +76,9 @@ public class GalleryActivity extends AppCompatActivity {
             Toast.makeText(this, "Navigate to playing audio", Toast.LENGTH_SHORT).show();
         });
         toPlayVideo.setOnClickListener(v ->{
-            Toast.makeText(this, "Navigate to playing video", Toast.LENGTH_SHORT).show();
+            Intent intent3 = new Intent(GalleryActivity.this, VideoGalleryActivity.class);
+            intent3.putExtra("email", intent.getStringExtra("email"));
+            startActivity(intent3);
         });
     }
 
@@ -89,7 +91,9 @@ public class GalleryActivity extends AppCompatActivity {
                     if (data.length() > 0) {
                         for (int i = 0; i < data.length(); i++){
                             JSONObject object = data.getJSONObject(i);
-                            photos.add(new Photo(object.getInt("id"), object.getString("description"), object.getString("picture")));
+                            photos.add(new Photo(object.getInt("id"),
+                                    object.getString("description"),
+                                    object.getString("picture")));
                         }
                     }
                     adapter.setPictures(photos);

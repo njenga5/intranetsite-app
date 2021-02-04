@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class GalleryRecViewAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class GalleryRecViewAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
     ArrayList<Photo> photos = new ArrayList<>();
     Context context;
 
@@ -23,13 +23,13 @@ public class GalleryRecViewAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gallery_list_item, parent, false);
-        return new ViewHolder(view);
+        return new GalleryViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
         String desc = photos.get(position).getDescription();
         if (desc.isEmpty()){
             holder.description.setVisibility(View.GONE);

@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 
-public class ViewHolder extends RecyclerView.ViewHolder {
+public class GalleryViewHolder extends RecyclerView.ViewHolder {
     public ImageView imgPhoto, expand;
     public TextView description;
     public MaterialCardView parent;
-    public ViewHolder(@NonNull View itemView) {
+    public GalleryViewHolder(@NonNull View itemView) {
         super(itemView);
         imgPhoto = itemView.findViewById(R.id.imgPhoto);
         expand = itemView.findViewById(R.id.expand);

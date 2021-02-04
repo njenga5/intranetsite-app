@@ -11,7 +11,14 @@
     <string name="password">Password</string>
     <string name="cancel">Cancel</string>
     <string name="profile">Profile</string>
-    <string name="gal_picture">picture</string>
+    <string name="gal_picture">Picture</string>
     <string name="upload_video">Upload Video</string>
     <string name="upload_audio">Upload Audio</string>
+    <string name="video_thumbnail">Video Thumbnail</string>
+    <string name="title">Title</string>
+    <string name="description">No Description</string>
+    <string name="expand_icon">Expand Icon</string>
+    <string name="action_btn">ActionBtn</string>
+    <string name="collapse_icon">Collapse Icon</string>
+    <string name="delete">Delete</string>
 </resources>

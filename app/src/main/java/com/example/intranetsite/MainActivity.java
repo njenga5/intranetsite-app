@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initViews();
+        //TODO: Remove these testing params
+        edtEmail.setText("joninduati31@gmail.com");
+        edtPass.setText("johnnjenga");
         btnLogin.setOnClickListener(v -> {
                     if (edtEmail.getText().toString().isEmpty() || !(edtEmail.getText().toString().matches("([\\w.%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4})"))) {
                         txtInvalidEmail.setVisibility(View.VISIBLE);
