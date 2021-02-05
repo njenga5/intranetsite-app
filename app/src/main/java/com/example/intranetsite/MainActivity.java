@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtInvalidEmail, txtInvalidPassword;
     private EditText edtEmail, edtPass;
     private MaterialButton btnLogin, btnSignUp;
-    private RelativeLayout RelParent;
+    private ScrollView RelParent;
     Map<String, String> params;
 
     @Override

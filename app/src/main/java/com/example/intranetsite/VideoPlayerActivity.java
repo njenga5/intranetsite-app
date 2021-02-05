@@ -26,6 +26,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
     private int currentWindow = 0;
     private long playbackPosition = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
