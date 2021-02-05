@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.android.volley.VolleyError;
-import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
@@ -18,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,34 +37,24 @@ public class VideoGalleryActivity extends AppCompatActivity {
         if (intent != null){
             params.put("email", intent.getStringExtra("email"));
         }
-        //new Thread(this::makeServiceRequest).start();
+        new Thread(this::makeServiceRequest).start();
         adapter = new VidGalleryRecViewAdapter(this);
         vidRecView = findViewById(R.id.videoRecView);
         vidRecView.setAdapter(adapter);
         vidRecView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        adapter.setVideos(videos);
         actionBtnVid = findViewById(R.id.actionBtnVid);
+    }
+
+    public void acquireVideos(ArrayList<Video> videos){
+        String[] urls = new String[videos.size()];
+        for(int i=0;i<videos.size();i++){
+            urls[i] = videos.get(i).getUrl();
+        }
         actionBtnVid.setOnClickListener(v ->{
             Intent intent1 = new Intent(VideoGalleryActivity.this, VideoPlayerActivity.class);
-            intent1.putExtra("videoUrls", videos);
+            intent1.putExtra("urls", urls);
             startActivity(intent1);
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (Util.SDK_INT >= 24){
-            makeServiceRequest();
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (Util.SDK_INT < 24){
-            makeServiceRequest();
-        }
     }
 
     public void makeServiceRequest(){
@@ -86,7 +76,8 @@ public class VideoGalleryActivity extends AppCompatActivity {
                                     object.getString("thumbnail")));
                         }
                     }
-                    //adapter.setVideos(videos);
+                    adapter.setVideos(videos);
+                    acquireVideos(videos);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -40,7 +40,9 @@ public class VideoPlayerActivity extends AppCompatActivity {
         public void onPlaybackStateChanged(int state) {
             switch (state){
                 case ExoPlayer.STATE_IDLE:
+                    break;
                 case ExoPlayer.STATE_ENDED:
+                    Log.d(TAG, "onPlaybackStateChanged: playback ended");
                     break;
                 case ExoPlayer.STATE_BUFFERING:
                     progressBar.setVisibility(View.VISIBLE);
@@ -58,8 +60,25 @@ public class VideoPlayerActivity extends AppCompatActivity {
         if (player == null) {
             player = new SimpleExoPlayer.Builder(this).build();
             playerView.setPlayer(player);
-            MediaItem mediaItem = MediaItem.fromUri(Uri.parse(getIntent().getStringExtra("url")));
-            player.setMediaItem(mediaItem);
+            Intent intent = getIntent();
+            if (intent != null){
+                String url = intent.getStringExtra("url");
+                if ((url != null)){
+                    MediaItem mediaItem = MediaItem.fromUri(Uri.parse(url));
+                    player.setMediaItem(mediaItem);
+                }else{
+                    String [] urls = intent.getStringArrayExtra("urls");
+                    for (int i = 0;i < urls.length;i++){
+                        if (i == 0){
+                            MediaItem initItem = MediaItem.fromUri(Uri.parse(urls[i]));
+                            player.setMediaItem(initItem);
+                        }else{
+                            MediaItem subseqItems = MediaItem.fromUri(Uri.parse(urls[i]));
+                            player.addMediaItem(subseqItems);
+                        }
+                    }
+                }
+            }
             player.setPlayWhenReady(playWhenReady);
             player.seekTo(currentWindow, playbackPosition);
             player.addListener(playbackStateListener);
@@ -81,13 +100,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
         super.onResume();
         hideSystemUi();
         if ((Util.SDK_INT < 24 || player == null)) {
-            Intent intent = getIntent();
-            try {
-                Log.d(TAG, intent.getStringExtra("url"));
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-//            initializePlayer();
+            initializePlayer();
         }
     }
 
